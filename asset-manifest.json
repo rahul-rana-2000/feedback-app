@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/feedback-app/static/js/main.912de5ef.js",
+    "index.html": "/feedback-app/index.html",
+    "main.912de5ef.js.map": "/feedback-app/static/js/main.912de5ef.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.912de5ef.js"
+  ]
+}
