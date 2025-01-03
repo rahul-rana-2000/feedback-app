@@ -1,36 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import {BrowserRouter as Router, Route, Routes, NavLink} from 'react-router-dom'
+import Header from './components/Header'
+import FeedbackList from './components/FeedbackList'
+import FeedbackStats from './components/FeedbackStats'
+import FeedbackForm from './components/FeedbackForm'
+import AboutPage from './Pages/AboutPage'
+import AboutIconLink from './components/AboutIconLink'
+import Card from './components/shared/Card'
+import Post from './components/Post'
+import { FeedbackProvider } from './Context/FeedbackContext'
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <FeedbackProvider>
+  <Router basename='feedback-app'>
+  <Header />
+  <div className='container'>
+    <Routes>
+           <Route exact path='/' element={
+ <>
+  <FeedbackForm /> 
+        <FeedbackStats />
+    <FeedbackList  />
     </>
+ }>
+</Route>
+   <Route path='/about' element={<AboutPage/>} />
+   <Route path='/post/*' element={<Post />} />
+   </Routes>
+   <Card>
+        <NavLink to="/" activeClassName="active">
+        Home 
+        </NavLink>
+        <NavLink to="/about" activeClassName="active">
+        About 
+        </NavLink>
+      </Card>
+   <AboutIconLink />
+  </div>
+  </Router>
+  </FeedbackProvider>
   )
 }
-
 export default App
