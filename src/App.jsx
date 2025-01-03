@@ -7,7 +7,7 @@ import AboutPage from './Pages/AboutPage'
 import AboutIconLink from './components/AboutIconLink'
 import Card from './components/shared/Card'
 import Post from './components/Post'
-import { FeedbackProvider } from './Context/FeedbackContext'
+import { FeedbackProvider } from './context/FeedbackContext'
 function App() {
   return (
     <FeedbackProvider>
